@@ -137,6 +137,7 @@ public class FlutterFreshchatPlugin implements MethodCallHandler {
             Freshchat.getInstance(this.application.getApplicationContext()).getUnreadCountAsync(new UnreadCountCallback() {
                 @Override
                 public void onResult(FreshchatCallbackStatus freshchatCallbackStatus, int i) {
+                    System.out.println("UnreadMessageCount: " + i.toString());
                     result.success(i);
                 }
             });
