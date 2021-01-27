@@ -141,6 +141,12 @@ public class FlutterFreshchatPlugin implements MethodCallHandler {
                     result.success(i);
                 }
             });
+            Freshchat.getInstance(getApplicationContext()).getUnreadCountAsync(new UnreadCountCallback() {
+                @Override
+                public void onResult(FreshchatCallbackStatus freshchatCallbackStatus, int i) {
+                    System.out.println("Direct-UnreadMessageCount: " + i.toString());
+                }
+            });
             break;
         case METHOD_SETUP_PUSH_NOTIFICATIONS:
             final String token = call.argument("token");
